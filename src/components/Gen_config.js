@@ -11,7 +11,7 @@ function Gen_config() {
 
   const [selectedFile, setSelectedFile] = React.useState(null);
 
-    const handleSubmit = async (event)=>{
+    const handleSubmit = (event)=>{
 
       event.preventDefault()
       const formData = new FormData();
@@ -21,7 +21,7 @@ function Gen_config() {
         "Content-Type": "multipart/form-data" 
                       };
 
-      const res=await axios.post('http://localhost:8090/xmlUpload', formData, { headers })
+       axios.post('http://localhost:8090/xmlUpload', formData, { headers })
         .then(response => 
           {
              console.log(response);
