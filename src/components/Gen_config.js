@@ -1,27 +1,47 @@
 import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
 import Displaypm from './Displaypm'; 
-import  Axios  from 'axios';
+import  axios  from 'axios';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
 function Gen_config() {
-    const getparam =()=>{
-      Axios.get('https://cors-anywhere.herokuapp.com/http://localhost:8090/xmlUpload').then(response=>
-      {
-         console.log(response);
-      });
-    };
-    return ( <>
-    <label  htmlFor=".xml">choose xml file</label><br/>
+
+  const [selectedFile, setSelectedFile] = React.useState(null);
+
+    const handleSubmit = async (event)=>{
+
+      event.preventDefault()
+      const formData = new FormData();
+      formData.append("selectedFile", selectedFile);
+
+      const headers = { 
+        "Content-Type": "multipart/form-data" 
+                      };
+
+      const res=await axios.post('http://localhost:8090/xmlUpload', formData, { headers })
+        .then(response => 
+          {
+             console.log(response);
+          });
   
-    <input type="file" id=".xml" /><br/><br/><br/>
-    <button type = "submit" onClick={getparam } className="button1">Submit</button>
-    <button type = "submit"  className="button1">Continue</button>
-   
-     </>)
+    };
+ 
+    const handleFileSelect = (event) => {
+      setSelectedFile(event.target.files[0])
+    }
+
+    return ( <>
+
+   <form onSubmit={handleSubmit}>
+       <label  htmlFor=".xml">choose xml file</label><br/>
+      <input type="file" id=".xml" onChange={handleFileSelect} /><br/><br/><br/>
+      <button type = "submit"  className="button1" value="Upload File">Submit</button>
+    </form>
+     </>
+     )
     }
   
   
