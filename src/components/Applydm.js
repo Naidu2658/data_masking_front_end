@@ -49,7 +49,7 @@ function Details() {
   <label  htmlFor="outputFileName">OUTPUT FILE NAME:</label><br/>
   <input type="text" id="outputFileName" name="outputFileName" value={sp} onChange={(e) => setsp(e.target.value)}/><br/>
   <br/>
-  <label  htmlFor=".xml">choose xml file</label><br/>
+  <label  htmlFor=".xml"jk>choose xml file</label><br/>
   
       <input type="file" id=".xml" /><br/><br/><br/>
       <label  htmlFor=".xsd">choose xsd file</label><br/>

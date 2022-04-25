@@ -1,10 +1,12 @@
 
 import './App.css';
-import Applydm from './components/Applydm'
 import Gen_config from './components/Gen_config'
+import Setparams from './components/Setparams'
+import Applydm from './components/Applydm'
 import NoPage from './components/NoPage'
 import React from 'react';
-import { Button } from 'react-bootstrap'; 
+import Setparams_new from './components/Setparams_new'
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -27,6 +29,7 @@ function App() {
    <Routes>
      {/* <Route exact path="/" element={<App/>}>  </Route> */}
      <Route exact path="/applydm" element={<Applydm/>}></Route>
+     <Route exact path="/setparams_new" element={<Setparams_new/>}></Route>
      <Route exact path="/genconfig" element={<Gen_config/>}></Route>
      {/* <Route path="*" element={<NoPage />} /> */}
    </Routes>

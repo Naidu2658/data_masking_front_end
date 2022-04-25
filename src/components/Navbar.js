@@ -10,8 +10,7 @@ function Navbar() {
     return (
       <>      
        <Link to="/genconfig"><button className="button1">gen config</button></Link>
-      
-      <Link to="/applydm"><button className="button1">apply dm</button></Link>
+       
      </>
   
     )
